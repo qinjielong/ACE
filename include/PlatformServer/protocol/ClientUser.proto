@@ -1,0 +1,34 @@
+package DataLock;
+
+option java_package = "com.DataLock";
+option java_outer_classname = "ClientUser";
+
+///////////////////////////////////////////////////////////////////////////////
+// 用户认证（统一认证）
+message UserAuthen {
+  required int32  type    = 1;		// 认证类型  [二进制或 0x01:用户名；/0x02：口令；/0x04：机器码；/0x08：证书] 
+  required string keyword = 2;   	// 用户认证串 各子串连接符使用';'分号，如子串中含有';'分号字符，使用'/;'进行改写
+}
+
+// 用户信息
+message ClientUserInfor {
+  required int32 userid   = 1;			// 用户ID
+  required string machineCode  = 2;	// 机器码
+  required string machineName = 3;	// 机器名
+  required string session = 4;			// 会话
+  required int32 state = 5;			  // 状态
+  required int32 partid = 6;			  // 部门ID
+  required string longintime = 7;		// 登陆时间
+  required string version = 8;		  // 客户端版本
+  required string ip = 9;				    // 客户端IP
+
+}
+
+// 用户会话
+message UserSession {
+  required int32  type    = 1;    // 会话类型
+  required string id      = 2;		// ID(对应用户ID/机器码)；
+  required string cert    = 3;		// 认证串
+  required string time	  = 4; 		// 时间戳
+}
+////////////////////////////////////////////////////////////////////////////////

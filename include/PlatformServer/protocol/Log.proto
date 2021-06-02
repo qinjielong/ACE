@@ -1,0 +1,27 @@
+package DataLock.Log;
+
+option java_package = "com.datalock";
+option java_outer_classname = "Log";
+
+////////////////////////////////////////////////////////////////////////////////
+// 用户日志
+message UserLog {
+  required int32   userid  = 1;   // 用户ID
+  required string  username  = 2;   // 用户名
+  required int32	 type			= 3;	// 类型
+  required int32   leve     = 4;  // 级别
+  required string  content  = 5;  // 内容
+  required string  time	    = 6;  // 时间
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 终端日志
+message ClientLog {
+  required string  deviceCode  = 1;  // 设备编号
+  required string  deviceName  = 2;  // 设备名
+  required int32	 type			= 3;	// 类型
+  required int32   leve     = 4;  // 级别
+  required string  content  = 5;  // 内容
+  required string  time	    = 6;  // 时间
+}
+////////////////////////////////////////////////////////////////////////////////

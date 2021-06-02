@@ -1,0 +1,18 @@
+package DataLock;
+
+option java_package = "com.dlp.datalock";
+option java_outer_classname = "ServiceProtos";
+
+// 服务接入消息[/服务同步消息]
+message ServiceJoinMessage {
+  required int32 typeid  = 1;		// 服务类型
+  required string name   = 2;	  // 服务名称
+  required int32 serial  = 3;		// 服务编号[同类型服务所生成编号-负载均衡]
+  required int32 number  = 4;		// 负载的并发数
+}
+
+// 服务断开消息
+message ServiceOutMessage {
+  required int32 typeid  = 1;		// 服务类型
+  required int32 serial  = 2;		// 服务编号
+}

@@ -1,0 +1,19 @@
+
+package DataLock;
+
+option java_package = "com.dlp.datalock";
+option java_outer_classname = "ClientJoinProtos";
+
+// 客户端接入消息[并进行服务信息获取请求]
+message ClientJoinMessage {
+  required string sid     = 1;		// 终端产品编号
+  required string ver     = 2; 		// 终端版本
+  required string keyword = 3;  	// 接入口令
+  required int32  enctype = 4;		// 口令加密算法类型
+  required int32  srvid   = 5;		// 0:为各基础服务器信息
+}
+
+message ClientJoinMessageRsp {
+  required bool   res      = 1;		  // 应答结果 true:为成功 false:为失败
+  required string servers  = 2;			// 应答结果为各服务器信息JSON格式；
+}

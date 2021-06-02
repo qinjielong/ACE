@@ -1,0 +1,28 @@
+package dlp;
+
+option java_package = "com.dlp.datalock";
+option java_outer_classname = "AuthenProtos";
+
+///////////////////////////////////////////////////////////////////////////////
+// 用户认证（统一认证）
+message UserAuthen {
+  required int32  type    = 1;		// 认证类型  [二进制或 0x01:用户名；/0x02：口令；/0x04：机器码；/0x08：证书] 
+  required string keyword = 2;   	// 用户认证串 各子串连接符使用';'分号，如子串中含有';'分号字符，使用'/;'进行改写
+}
+
+// 用户信息
+message UserInfor {
+  required string userid   = 1;		// 用户ID
+  required string name     = 2;		// 用户名
+  required string partment = 3;		// 部门
+  required string componey = 4;		// 公司
+}
+
+// 用户会话
+message UserSession {
+  required int32  type    = 1;    // 会话类型
+  required string id      = 2;		// ID(对应用户ID/机器码)；
+  required string cert    = 3;		// 认证串
+  required string time	  = 4; 		// 时间戳
+}
+////////////////////////////////////////////////////////////////////////////////
